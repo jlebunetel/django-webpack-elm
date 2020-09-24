@@ -1,0 +1,8 @@
+/elm-stuff/
+/node_modules/
+/drafts/
+/venv/
+__pycache__/
+db.sqlite3
+/site_media/
+/myawesomeapp/settings/production.py

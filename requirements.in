@@ -1,0 +1,12 @@
+# Django
+django<3.2
+
+# Auth
+django-allauth
+
+# Front-end
+django-webpack-loader==0.7.0
+
+# Django REST framework
+djangorestframework
+django-filter

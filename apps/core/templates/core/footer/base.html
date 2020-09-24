@@ -1,0 +1,14 @@
+{% load i18n %}
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            {% blocktranslate with project_name="My Awesome App!" project_url="https://github.com/jlebunetel/django-webpack-elm" project_author="Julien Lebunetel" project_author_url="https://github.com/jlebunetel" project_contributors_url="" %}
+            <a href="{{ project_url }}"><span class="icon"><i class="fab fa-github"></i></span>{{ project_name }}</a> by <a href="{{ project_author_url }}">{{ project_author }}</a> and <a href="{{ project_contributors_url }}">many
+                contributors</a>.
+            {% endblocktranslate %}
+            {% blocktranslate with project_license="MIT" project_url="https://opensource.org/licenses/MIT" %}
+            The source code is licensed <a href="{{ project_license_url }}">{{ project_license }}</a>.
+            {% endblocktranslate %}
+        </p>
+    </div>
+</footer>

@@ -1,0 +1,11 @@
+-c requirements.txt
+
+# Dev tools
+black
+cookiecutter
+
+# Debug
+django-debug-toolbar
+
+# Package management
+pip-tools
