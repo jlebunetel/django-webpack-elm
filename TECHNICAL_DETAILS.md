@@ -24,6 +24,7 @@
 * [Python](https://www.python.org/) 3.8;
 * [venv module](https://docs.python.org/fr/3/library/venv.html);
 * [PostgreSQL](https://www.postgresql.org/) 9.6.
+* [Psycopg](https://www.psycopg.org/) (package `python3-psycopg2`)
 
 ### Install development environment
 Make sure you have the required packages installed on your machine, then install all the dev tools and run some Django initialization commands:
@@ -53,7 +54,7 @@ Create a production environment. For instance at [alwaysdata](https://www.always
 $ make install-prod-venv-alwaysdata
 ```
 
-Create a new file named `production.py` in `myawesomeapp/settings` and write your production settings in it (you can rely on the example provided at `myawesomeapp/settings/production-example.py`).
+Create a new file named `production.py` in `myawesomeapp/settings` and write your production settings in it (you can rely on the example provided at `myawesomeapp/settings/production-example.py` and a useful command to generate a secret key is available with `$ make generate_secret_key`).
 
 Edit `myawesomeapp/settings/__init__.py`:
 ```
