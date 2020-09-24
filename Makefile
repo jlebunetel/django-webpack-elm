@@ -20,7 +20,6 @@ install-prod-venv-alwaysdata: ## Install prod environment at alwaysdata.
 .PHONY: update-dev-venv
 update-dev-venv: ## Update dev environment.
 	$(VENV_DIR)/bin/pip-compile --upgrade
-	#$(VENV_DIR)/bin/pip-compile --upgrade prod-requirements.in
 	$(VENV_DIR)/bin/pip-compile --upgrade dev-requirements.in
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip-sync requirements.txt dev-requirements.txt
