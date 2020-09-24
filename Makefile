@@ -63,14 +63,14 @@ clean-static: ## Remove collected static files.
 
 .PHONY: clean-migrations
 clean-migrations: ## Remove all Django migrations and database.
-	find . -path "*/migrations/*.py" -not -path "./venv*" -not -name "__init__.py" -delete
-	find . -path "*/migrations/*.pyc" -not -path "./venv*" -delete
+	find . -path "*/migrations/*.py" -not -path "./$(VENV_DIR)*" -not -name "__init__.py" -delete
+	find . -path "*/migrations/*.pyc" -not -path "./$(VENV_DIR)*" -delete
 	rm -f db.sqlite3
 
 .PHONY: clean-python
 clean-python: ## Clean Django environment.
-	find . -path "*.pyc" -not -path "./venv*" -delete
-	find . -path "*/__pycache__" -not -path "./venv*" -delete
+	find . -path "*.pyc" -not -path "./$(VENV_DIR)*" -delete
+	find . -path "*/__pycache__" -not -path "./$(VENV_DIR)*" -delete
 
 .PHONY: reinstall-django
 reinstall-django: clean-static clean-migrations clean-python migrations install-django ## Reinstall a fresh Django environment.
@@ -95,13 +95,17 @@ build: ## Build the front-end bundle in production mode.
 
 .PHONY: serve
 serve: ## Starts a lightweight development Web server on the local machine.
-	venv/bin/python manage.py runserver 127.0.0.1:8000
+	$(VENV_DIR)/bin/python manage.py runserver 127.0.0.1:8000
 
 .PHONY: quickstart
 quickstart: install-dev-venv migrate install-django serve ## Quicktart demo app.
 
 .PHONY: install-dev
 install-dev: install-dev-front install-dev-venv install-django ## Install development environment.
+
+.PHONY: generate_secret_key
+generate_secret_key: ## Generates a secret key for production.
+	@$(VENV_DIR)/bin/python utils/secret_key.py
 
 .PHONY: help
 help: ## Lists all the available commands.
