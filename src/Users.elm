@@ -6,7 +6,7 @@ import Html.Attributes exposing (checked, class, classList, disabled, id, name, 
 import Html.Events exposing (..)
 import Http
 import Json.Decode as JD exposing (Decoder, field, int, list, map2, map3, map4, string)
-import Url.Builder as UB exposing (QueryParameter, crossOrigin, string)
+import Url.Builder as UB exposing (QueryParameter, absolute, string)
 
 
 main : Program () Model Msg
@@ -299,8 +299,7 @@ getUsersList : Model -> Cmd Msg
 getUsersList model =
     Http.get
         { url =
-            crossOrigin
-                "http://127.0.0.1:8000"
+            absolute
                 [ "api", "v1", "users" ]
                 (getQueryParameterList model)
         , expect = Http.expectJson ResponseReceived usersListDecoder
