@@ -15,11 +15,12 @@ install-prod-venv-alwaysdata: ## Install prod environment at alwaysdata.
 	PYTHON_VERSION=$(PYTHON_VERSION) python -m venv $(VENV_DIR)
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip install pip-tools
-	$(VENV_DIR)/bin/pip-sync
+	$(VENV_DIR)/bin/pip-sync requirements.txt prod-requirements.txt
 
 .PHONY: update-dev-venv
 update-dev-venv: ## Update dev environment.
 	$(VENV_DIR)/bin/pip-compile --upgrade
+	#$(VENV_DIR)/bin/pip-compile --upgrade prod-requirements.in
 	$(VENV_DIR)/bin/pip-compile --upgrade dev-requirements.in
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip-sync requirements.txt dev-requirements.txt
@@ -27,7 +28,8 @@ update-dev-venv: ## Update dev environment.
 .PHONY: update-prod-venv
 update-prod-venv: ## Update prod environment.
 	$(VENV_DIR)/bin/pip install --upgrade pip
-	$(VENV_DIR)/bin/pip-sync
+	$(VENV_DIR)/bin/pip-compile --upgrade prod-requirements.in
+	$(VENV_DIR)/bin/pip-sync requirements.txt prod-requirements.txt
 
 .PHONY: create-dev-venv
 create-dev-venv: ## Create a dev environment.
@@ -35,6 +37,7 @@ create-dev-venv: ## Create a dev environment.
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip install pip-tools
 	$(VENV_DIR)/bin/pip-compile
+	$(VENV_DIR)/bin/pip-compile prod-requirements.in
 	$(VENV_DIR)/bin/pip-compile dev-requirements.in
 	$(VENV_DIR)/bin/pip-sync requirements.txt dev-requirements.txt
 

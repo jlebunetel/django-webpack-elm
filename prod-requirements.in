@@ -1,7 +1,7 @@
 -c requirements.txt
 
 # PostgreSQL
-psycopg2-binary
+psycopg2
 
 # Dev tools
 black
