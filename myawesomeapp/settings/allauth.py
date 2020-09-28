@@ -8,7 +8,9 @@ ACCOUNT_ADAPTER = "accounts.adapter.CustomUserAccountAdapter"
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Default: "username"
 # ACCOUNT_CONFIRM_EMAIL_ON_GET = False
 # ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = LOGIN_URL
-# ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = None
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = (
+    "/accounts/profile/"
+)  # Default: None
 # ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 # ACCOUNT_EMAIL_CONFIRMATION_HMAC = True
 ACCOUNT_EMAIL_REQUIRED = True  # Default: False
@@ -17,7 +19,7 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Default: optional
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
 # ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 180
 # ACCOUNT_EMAIL_MAX_LENGTH = 254
-# ACCOUNT_FORMS = {}
+ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}  # Default: {}
 # ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds  # Default: 300
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # Default: False
@@ -39,7 +41,6 @@ ACCOUNT_PRESERVE_USERNAME_CASING = False  # Default: True
 # ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
 ACCOUNT_USERNAME_MIN_LENGTH = 8  # Default: 1
 # ACCOUNT_USERNAME_REQUIRED = True
-#### ACCOUNT_USERNAME_VALIDATORS = ["accounts.validators.UsernameValidator"]  # Default: None
 ACCOUNT_USERNAME_VALIDATORS = "accounts.validators.username_validators"  # Default: None
 # SOCIALACCOUNT_ADAPTER = "allauth.socialaccount.adapter.DefaultSocialAccountAdapter"
 SOCIALACCOUNT_AUTO_SIGNUP = False  # Default: True
