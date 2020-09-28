@@ -3,7 +3,7 @@ django-allauth settings.
 https://django-allauth.readthedocs.io/en/latest/configuration.html
 """
 
-# ACCOUNT_ADAPTER = "accounts.adapter.CustomUserAccountAdapter"
+ACCOUNT_ADAPTER = "accounts.adapter.CustomUserAccountAdapter"
 # ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Default: "username"
 # ACCOUNT_CONFIRM_EMAIL_ON_GET = False

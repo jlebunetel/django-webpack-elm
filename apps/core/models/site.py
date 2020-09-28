@@ -12,6 +12,8 @@ class SiteCustomization(models.Model):
         verbose_name=_("site"),
     )
 
+    is_open_for_signup = models.BooleanField(default=True)
+
     tagline = models.CharField(
         blank=True,
         max_length=settings.MYAWESOMEAPP_SITECUSTOMIZATION_TAGLINE_LENGHT,
