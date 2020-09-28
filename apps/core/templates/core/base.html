@@ -13,14 +13,14 @@
     {% endif %}
 
     {% if object.description %}
-    <meta name="description" content="{{ object.description }}">
+    <meta name="description" content="{% if object.description %}{{ object.description }}{% else %}{{ request.site.sitecustomization.description }}{% endif %}">
     {% endif %}
 
     {% if object.tags %}
     <meta name="keywords" content="{% for tag in object.tags %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}">
     {% endif %}
 
-    <meta name="generator" content="My Workshop Project">
+    <meta name="generator" content="My Awesome App!">
 
     <meta name="publisher" content="{{ request.site.name }}">
 
@@ -34,7 +34,7 @@
     {% include "core/opengraph/base.html" %}
     {% endblock opengraph %}
 
-    <title>{% block head_title %}{% if object.title %}{{ object.title }} | {% endif %}{{ request.site.name }}{% endblock head_title %}</title>
+    <title>{% block head_title %}{% if object.title %}{{ object.title }} | {{ request.site.name }}{% else %}{{ request.site.name }} | {{ request.site.sitecustomization.tagline }}{% endif %}{% endblock head_title %}</title>
 
     {% block css %}
     {% render_bundle 'runtime' 'css' %}
