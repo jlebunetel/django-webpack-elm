@@ -3,8 +3,9 @@ A template to quickly create a modern web application project with Django and El
 
 ## Features
 * Create a fully functional [Django](https://www.djangoproject.com/) project witch includes:
-    * Custom user management with [django-allauth](https://django-allauth.readthedocs.io/en/latest/);
-    * Web API framework with [Django REST framework](https://www.django-rest-framework.org/).
+    * Custom user management with [django-allauth](https://django-allauth.readthedocs.io);
+    * Web API framework with [Django REST framework](https://www.django-rest-framework.org/);
+    * Dynamic content translation with [Modeltranslation](https://django-modeltranslation.readthedocs.io).
 * Sets up the JavaScript module bundler [webpack](https://webpack.js.org/) which integrates:
     * [Elm](https://elm-lang.org/) compilation;
     * The CSS framework [Bulma](https://bulma.io/);

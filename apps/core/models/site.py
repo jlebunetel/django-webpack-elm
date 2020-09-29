@@ -16,7 +16,7 @@ class SiteCustomization(models.Model):
         default=True, verbose_name=_("is open for signup")
     )
 
-    tagline = models.CharField(
+    tagline = models.CharField(  # [i18n]
         blank=True,
         max_length=settings.MYAWESOMEAPP_SITECUSTOMIZATION_TAGLINE_LENGHT,
         verbose_name=_("tagline"),
@@ -24,7 +24,7 @@ class SiteCustomization(models.Model):
         default="A few words to describe this very website.",
     )
 
-    description = models.TextField(
+    description = models.TextField(  # [i18n]
         blank=True,
         max_length=settings.MYAWESOMEAPP_SITECUSTOMIZATION_DESCRIPTION_LENGHT,
         verbose_name=_("description"),

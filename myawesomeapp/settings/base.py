@@ -16,6 +16,7 @@ sys.path.append(APPS_DIR)
 INSTALLED_APPS = [
     "django.contrib.sites",  # before "accounts" to override SiteAdmin  # `allauth` needs this from django
     "accounts.apps.AccountsConfig",  # before "django.contrib.auth" to override templates
+    "modeltranslation",  # before "django.contrib.admin" to use the admin integration
     "django.contrib.admin",
     "django.contrib.auth",  # `allauth` needs this from django
     "django.contrib.contenttypes",
