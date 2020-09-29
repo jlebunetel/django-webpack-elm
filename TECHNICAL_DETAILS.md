@@ -128,6 +128,20 @@ __to do...__
 __to do...__
 
 
+## I18N
+1. The first step is to create (or update) a message file for a (new) language. For instance, considering __fr__ language for __core__ app, you can use:
+```
+$ make app=core lang=fr makemessages
+```
+
+2. Then you can edit `apps/core/locale/fr/LC_MESSAGES/django.po` to translate messages.
+
+3. Finally, compiles .po files created by makemessages to .mo files:
+```
+$ make app=core compilemessages
+```
+
+
 ## Versioning
 We use [SemVer](http://semver.org/) for versioning. See the [CHANGELOG.md](CHANGELOG.md) file for details.
 

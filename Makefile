@@ -109,6 +109,14 @@ install-dev: install-dev-front install-dev-venv install-django ## Install develo
 generate_secret_key: ## Generates a secret key for production.
 	@$(VENV_DIR)/bin/python utils/secret_key.py
 
+.PHONY: makemessages
+makemessages: ## Creates (or updates) a message file in an app directory. Usage: $ make app=core lang=fr makemessages
+	@cd apps/$(app); mkdir -p locale/$(lang); ../../$(VENV_DIR)/bin/django-admin makemessages -l $(lang)
+
+.PHONY: compilemessages
+compilemessages: ## Compiles .po files created by makemessages to .mo files. Usage: $ make app=core compilemessages
+	@cd apps/$(app); ../../$(VENV_DIR)/bin/django-admin compilemessages
+
 .PHONY: help
 help: ## Lists all the available commands.
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

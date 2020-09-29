@@ -2,13 +2,18 @@
 <footer class="footer">
     <div class="content has-text-centered">
         <p>
-            {% blocktranslate with project_name="My Awesome App!" project_url="https://github.com/jlebunetel/django-webpack-elm" project_author="Julien Lebunetel" project_author_url="https://github.com/jlebunetel" project_contributors_url="https://github.com/jlebunetel/django-webpack-elm/graphs/contributors" %}
-            <a href="{{ project_url }}"><span class="icon"><i class="fab fa-github"></i></span>{{ project_name }}</a> by <a href="{{ project_author_url }}">{{ project_author }}</a> and <a href="{{ project_contributors_url }}">many
-                contributors</a>.
-            {% endblocktranslate %}
-            {% blocktranslate with project_license="MIT" project_url="https://opensource.org/licenses/MIT" %}
-            The source code is licensed <a href="{{ project_license_url }}">{{ project_license }}</a>.
-            {% endblocktranslate %}
+            <a href="https://github.com/jlebunetel/django-webpack-elm">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                My Awesome App!
+            </a>
+            {% trans 'by' %}
+            <a href="https://github.com/jlebunetel">Julien Lebunetel</a>
+            {% trans 'and' %}
+            <a href="https://github.com/jlebunetel/django-webpack-elm/graphs/contributors">{% trans 'many contributors' %}</a>.
+            {% trans 'The source code is licensed' %}
+            <a href="https://opensource.org/licenses/MIT">MIT</a>.
         </p>
     </div>
 </footer>
