@@ -17,7 +17,7 @@
         <hr class="navbar-divider">
         {% endif %}
         {% url 'accounts:profile' as the_url %}
-        <a class="navbar-item" href="{{ the_url }}">{% trans 'Profile:' %} {{ user }}</a>
+        <a class="navbar-item" href="{{ the_url }}">{% trans 'Profile of' %} {{ user }}</a>
         {% url 'account_email' as the_url %}
         <a class="navbar-item{% if request.path == the_url %} is-active{% endif %}" href="{{ the_url }}">{% trans 'E-mail Addresses' %}</a>
         {% url 'socialaccount_connections' as the_url %}

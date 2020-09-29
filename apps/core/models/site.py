@@ -12,7 +12,9 @@ class SiteCustomization(models.Model):
         verbose_name=_("site"),
     )
 
-    is_open_for_signup = models.BooleanField(default=True)
+    is_open_for_signup = models.BooleanField(
+        default=True, verbose_name=_("is open for signup")
+    )
 
     tagline = models.CharField(
         blank=True,
