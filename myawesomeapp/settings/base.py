@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "webpack_loader",
     "rest_framework",
     "django_filters",
+    "simple_history",
 ]
 
 # Middewares
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.contrib.sites.middleware.CurrentSiteMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
 ]
 
 # Root urls
@@ -94,6 +96,12 @@ REST_FRAMEWORK = {
     "SEARCH_PARAM": "search",  # Default: "search"
     "ORDERING_PARAM": "ordering",  # Default: "ordering"
 }
+
+# django-simple-history
+# SIMPLE_HISTORY_HISTORY_CHANGE_REASON_USE_TEXT_FIELD = False
+SIMPLE_HISTORY_HISTORY_ID_USE_UUID = True  # Default: False
+SIMPLE_HISTORY_FILEFIELD_TO_CHARFIELD = True  # Default: False
+# SIMPLE_HISTORY_REVERT_DISABLED = False
 
 # My Awesome App!
 MYAWESOMEAPP_SITECUSTOMIZATION_TAGLINE_LENGHT = 255
