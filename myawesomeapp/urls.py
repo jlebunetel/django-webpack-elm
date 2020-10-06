@@ -1,6 +1,9 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework.routers import DefaultRouter
+from accounts.viewsets import GroupViewSet, HistoricalUserViewSet, UserViewSet
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -17,15 +20,14 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-from rest_framework import routers
-from accounts.views import UserViewSet, GroupViewSet
-
-router = routers.DefaultRouter()
-router.register("users", UserViewSet)
+router = DefaultRouter()
 router.register("groups", GroupViewSet)
+router.register("users", UserViewSet)
+router.register("users-history", HistoricalUserViewSet)
+
 
 urlpatterns += [
-    path("api/v1/", include((router.urls, "api"))),
+    path("api/v1/", include((router.urls, "api"), namespace="api")),
     path(
         "api/v1/api-auth/", include("rest_framework.urls", namespace="rest_framework")
     ),
