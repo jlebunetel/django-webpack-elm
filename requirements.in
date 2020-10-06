@@ -13,3 +13,6 @@ django-filter
 
 # i18n
 django-modeltranslation
+
+# log
+django-simple-history

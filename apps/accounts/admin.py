@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext, gettext_lazy as _
 from allauth.account.models import EmailAddress
 from allauth.socialaccount.models import SocialAccount
+from simple_history.admin import SimpleHistoryAdmin
 from accounts.models import User
 
 
@@ -19,7 +20,7 @@ class SocialAccountInline(admin.TabularInline):
     readonly_fields = ("last_login", "date_joined")
 
 
-class UserAdmin(BaseUserAdmin):
+class UserAdmin(BaseUserAdmin, SimpleHistoryAdmin):
     # see https://github.com/django/django/blob/master/django/contrib/auth/admin.py
     readonly_fields = ("username",)
     fieldsets = (

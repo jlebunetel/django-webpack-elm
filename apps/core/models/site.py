@@ -5,6 +5,8 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 
 
 class SiteCustomization(models.Model):
+    # history = HistoricalRecords()  # done in translation.py
+
     site = models.OneToOneField(
         Site,
         on_delete=models.CASCADE,  # if Site is deleted, SiteCustomization will also be deleted!

@@ -1,5 +1,9 @@
-from core.models import SiteCustomization
+from django.contrib.sites.models import Site
 from modeltranslation.translator import translator, TranslationOptions
+import simple_history
+from core.models import SiteCustomization
+
+simple_history.register(Site, app="core")
 
 
 class SiteCustomizationTranslationOptions(TranslationOptions):
@@ -7,3 +11,4 @@ class SiteCustomizationTranslationOptions(TranslationOptions):
 
 
 translator.register(SiteCustomization, SiteCustomizationTranslationOptions)
+simple_history.register(SiteCustomization)

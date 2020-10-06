@@ -22,6 +22,7 @@ class PublicUserManager(BaseUserManager):
 
 
 class User(AbstractUser):
+    # history = HistoricalRecords()  # done in translation.py
 
     username_validator = UsernameValidator()
 
