@@ -3,7 +3,7 @@ from django.contrib.auth.models import UserManager as BaseUserManager
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext, ugettext_lazy as _
-from accounts.validators import UsernameValidator
+from core.validators import UsernameValidator
 
 
 SENTINEL_USER_USERNAME = "deleted"
